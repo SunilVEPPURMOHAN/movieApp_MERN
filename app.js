@@ -68,6 +68,7 @@ app.post("/register", (request, response) => {
             message: "Error creating user",
             error,
           });
+          console.log(error);
         });
     })
     // catch error if the password hash isn't successful
