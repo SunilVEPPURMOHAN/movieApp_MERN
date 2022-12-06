@@ -10,7 +10,11 @@ const User = require("./db/userModel");
 const dbConnect = require("./db/dbConnect");
 
 // execute database connection 
-dbConnect();
+dbConnect().then(()=>{
+  app.listen(PORT, ()=>{
+    console.log("listening your requests")
+  })
+});
 
 // Curb Cores Error by adding a header here
 app.use((req, res, next) => {
