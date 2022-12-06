@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const express = require("express");
 const app = express();
+// const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const User = require("./db/userModel");
 
@@ -10,11 +11,7 @@ const User = require("./db/userModel");
 const dbConnect = require("./db/dbConnect");
 
 // execute database connection 
-dbConnect().then(()=>{
-  app.listen(PORT, ()=>{
-    console.log("listening your requests")
-  })
-});
+dbConnect();
 
 // Curb Cores Error by adding a header here
 app.use((req, res, next) => {
